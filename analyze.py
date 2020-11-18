@@ -6,13 +6,6 @@ import os
 from collections import defaultdict
 
 
-# utility function fot printing
-def divide(title):
-    divider = '=' * 80
-    print('\n{}\n{}\n{}\n'.format(divider, title, divider))
-    pass
-
-
 # utility function to create csv from dictionary
 def create_csv(file_name, header, data):
     file = open(os.path.join('output', '{}.csv'.format(file_name)), 'w+')
@@ -36,7 +29,7 @@ olink_trigger_count_dict = defaultdict(int)
 motion_count_dict = defaultdict(int)
 
 # load all xml files in data folder
-xml_files = glob.glob('./data/**/*.xml', recursive=True)
+xml_files = glob.glob('data/**/*.xml', recursive=True)
 
 # iterate over xml files
 for xml_file in xml_files:
@@ -45,6 +38,7 @@ for xml_file in xml_files:
     tree = ElTree.parse(xml_file)
     text = tree.find('TEXT').text
 
+    # initialize word counter
     sentence_length = 0
 
     # generate pos tokens for text
@@ -77,6 +71,7 @@ for xml_file in xml_files:
                 else:
                     olink_trigger_count_dict[trigger_text] += 1
 
+        # add motion verbs to dictionary
         if entity.tag == 'MOTION':
             motion_count_dict[entity.get('text').lower()] += 1
 
