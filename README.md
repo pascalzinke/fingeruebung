@@ -9,3 +9,5 @@ Highlights_of_the_Prado_Museum.xml Dateien, sofern sich diese irgendwo im
 'data' Ordner befinden, und erstellt jeweils ein JPG im 'output' Ordner.
 SPATIAL_ENTITIES werden blau dargestellt, PLACES gelb, QSLINKS grün und
 OLINKS rot.
+
+In der auswertung.pdf befindet sich die Auswertung für die Trainingsdaten.
